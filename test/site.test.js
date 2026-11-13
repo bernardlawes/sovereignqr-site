@@ -81,6 +81,14 @@ test('in-page anchors exist', () => {
   }
 });
 
+test('email links use only the support address', () => {
+  for (const { name, html } of pages) {
+    for (const [, addr] of html.matchAll(/href="mailto:([^"]+)"/g)) {
+      assert.equal(addr, 'support@sovereignqr.com', name);
+    }
+  }
+});
+
 test('external links go only to the public sites', () => {
   for (const { name, html } of pages) {
     for (const [, url] of html.matchAll(/\shref="(https?:[^"]+)"/g)) {

@@ -1,6 +1,6 @@
 # sovereignqr.com — landing page plan
 
-Status: **approved 2026-11-12; built locally.** The owner accepted every recommendation below and confirmed the background photo is theirs. Still open: the support contact (question 4). Not done yet, each on the owner's OK: GitHub repo and push, Pages project, deploy, custom domain, `www` redirect.
+Status: **live at https://sovereignqr.com since 2026-11-13.** The owner accepted every recommendation below and confirmed the background photo is theirs. Support contact: support@sovereignqr.com (Cloudflare Email Routing to the owner's inbox). www redirects to the bare domain.
 
 ## Open questions for the owner
 
