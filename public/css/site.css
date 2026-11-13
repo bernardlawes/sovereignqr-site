@@ -169,6 +169,35 @@ main {
 .page .updated { font-size: .9rem; }
 .page .actions { justify-content: flex-start; margin-top: 1.25rem; }
 
+/* ---- wider screens: fewer boxes, quieter background ----
+   Phones keep one glass card per item. From 720px the photo is dimmed, the
+   three "no network" points sit on the page without boxes, and the feature
+   tiles share one panel. */
+@media (min-width: 720px) {
+  body::before {
+    background:
+      radial-gradient(ellipse at 50% 30%, rgba(7, 11, 14, .35), rgba(7, 11, 14, .80) 75%),
+      linear-gradient(rgba(7, 11, 14, .45), rgba(7, 11, 14, .45)),
+      url("/img/bg-warehouse.webp") 25% 65% / cover no-repeat;
+  }
+  main { max-width: 980px; gap: 88px; padding-top: 48px; }
+  .points .card, .grid-features > .card {
+    background: none; border: 0; box-shadow: none; border-radius: 0;
+    -webkit-backdrop-filter: none; backdrop-filter: none;
+  }
+  .points .card { text-align: center; padding: 0 12px; }
+  .grid-features {
+    background: var(--glass);
+    -webkit-backdrop-filter: blur(22px);
+    backdrop-filter: blur(22px);
+    border: 1px solid var(--glass-border);
+    box-shadow: var(--glass-shadow);
+    border-radius: var(--radius);
+    padding: 12px; gap: 0;
+  }
+  .grid-features > .card { padding: 20px 18px; }
+}
+
 /* ---- footer ---- */
 .footer {
   max-width: 1100px; margin: 0 auto; padding: 40px 16px 48px;
