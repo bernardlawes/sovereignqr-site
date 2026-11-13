@@ -137,3 +137,14 @@ test('headers: strict CSP, indexable', async () => {
   assert.match(headers, /Strict-Transport-Security/);
   assert.doesNotMatch(headers, /X-Robots-Tag/i);
 });
+
+// Cloudflare's email obfuscation needs a script, which the CSP blocks.
+test('email addresses are excluded from Cloudflare email obfuscation', () => {
+  for (const { name, html } of pages) {
+    for (const m of html.matchAll(/[\w.+-]+@[\w-]+\.[\w.]+/g)) {
+      const before = html.lastIndexOf('<!--email_off-->', m.index);
+      const end = html.lastIndexOf('<!--/email_off-->', m.index);
+      assert.ok(before !== -1 && before > end, `${name}: ${m[0]} outside <!--email_off-->`);
+    }
+  }
+});
